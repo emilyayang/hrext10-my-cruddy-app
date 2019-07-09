@@ -6,94 +6,105 @@
 
 */
 
+var categories = ["Bakery", 
+   "Beverages",
+   "Canned Goods",
+   "Dairy",
+   "Dry/Baking Goods",
+   "Frozen Foods",
+   "Health & Personal Care",
+   "Meat",
+   "Produce",
+   "Other"]
+
 //localStorage functions
-var createItem = function(key, value) {
-  return window.localStorage.setItem(key, value);
+var createItem = function(item, category) {
+  return window.localStorage.setcategory(item, category);
 }
 
-var updateItem = function(key, value) {
-  return window.localStorage.setItem(key, value);
+var updateItem = function(item, category) {
+  return window.localStorage.setcategory(item, category);
 }
 
-var deleteItem = function(key) {
-  return window.localStorage.removeItem(key);
+var deleteItem = function(item) {
+  return window.localStorage.removecategory(item);
 }
 
-var clearDatabase = function() {
+var clearList = function() {
   return window.localStorage.clear();
 }
 
-var showDatabaseContents = function() {
+var showList = function() {
   $('tbody').html('');
 
   for (var i = 0; i < window.localStorage.length; i++) {
-    var key = window.localStorage.key(i);
-    $('tbody').append(`<tr><td>${key}</td><td>${window.localStorage.getItem(key)}</td></tr>`)
+    var item = window.localStorage.item(i);
+    $('tbody').append(`<tr><td>${item}</td><td>${window.localStorage.getcategory(item)}</td></tr>`)
   }
 }
 
-var keyExists = function(key) {
-  return window.localStorage.getItem(key) !== null
+var itemExists = function(item) {
+  return window.localStorage.getcategory(item) !== null
 }
 
-var getKeyInput = function() {
-  return $('.key').val();
+var getitemInput = function() {
+  return $('.item').val();
 }
 
-var getValueInput = function() {
-  return $('.value').val();
+var getcategoryInput = function() {
+  return $('.category').val();
 }
 
 var resetInputs = function() {
-  $('.key').val('');
-  $('.value').val('');
+  $('.item').val('');
+  $('.category').val('');
 }
 
 $(document).ready(function() {
-  showDatabaseContents();
+  showList();
 
   $('.create').click(function() {
-    if (getKeyInput() !== '' && getValueInput() !== '') {
-      if (keyExists(getKeyInput())) {
-        if(confirm('key already exists in database, do you want to update instead?')) {
-          updateItem(getKeyInput(), getValueInput());
-          showDatabaseContents();
+    if (getitemInput() !== '' && getcategoryInput() !== '') {
+      if (itemExists(getitemInput())) {
+        if(confirm('Item already exists! Would you like to update instead?')) {
+          updateItem(getitemInput(), getcategoryInput());
+          showList();
         }
       } else {
-        createItem(getKeyInput(), getValueInput());
-        showDatabaseContents();
+        createItem(getitemInput(), getcategoryInput());
+        showList();
         resetInputs();
       }
-    } else  {
-      alert('key and value must not be blank');
+    // } else  {
+    //   alert('item and category must not be blank');
     }
   });
 
   $('.update').click(function() {
-    if (getKeyInput() !== '' && getValueInput() !== '') {
-      if (keyExists(getKeyInput())) {
-        updateItem(getKeyInput(), getValueInput());
-        showDatabaseContents();
+    if (getitemInput() !== '' && getcategoryInput() !== '') {
+      if (itemExists(getitemInput())) {
+        updateItem(getitemInput(), getcategoryInput());
+        showList();
         resetInputs();
       } else {
-        alert('key does not exist in database');
+        alert('Item does not exist');
       }
-    } else {
-      alert('key and value must not be blank');
+    // } else {
+    //   alert('item and category must not be blank');
     }
   });
 
   $('.delete').click(function() {
-     if (getKeyInput() !== '') {
-      if (keyExists(getKeyInput())) {
-        deleteItem(getKeyInput());
-        showDatabaseContents();
+     if (getitemInput() !== '') {
+      if (itemExists(getitemInput())) {
+        deleteItem(getitemInput());
+        showList();
         resetInputs();
       } else {
-        alert('key does not exist in database');
+        alert('Item does not exist');
       }
-    } else {
-      alert('key must not be blank');
+    // } else {
+    //   alert('item must not be blank');
     }
   });
 
@@ -102,9 +113,10 @@ $(document).ready(function() {
   })
 
   $('.clear').click(function() {
-    if (confirm('WARNING: Are you sure you want to clear the database? \n                THIS ACTION CANNOT BE UNDONE')) {
-      clearDatabase();
-      showDatabaseContents();
+    if (confirm('Done shopping? This action will clear your list')) {
+      clearList();
+      showList();
     }
   })
 })
+
