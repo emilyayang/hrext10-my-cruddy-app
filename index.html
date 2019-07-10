@@ -2,6 +2,151 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>ListIt</title>
+  <script
+          src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+ </head>
+<body>
+  <h2>ListIt</h2>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Category</label>
+  </div>
+  <select class="category" id="inputGroupSelect01" style="width:400px" >
+     <option selected>Choose...</option>
+     <option value = "Bakery">Bakery</option>
+     <option value = "Canned Goods">Canned Goods</option>
+     <option value = "Dairy">Dairy</option>
+     <option value = "Dry/Baking Goods">Dry/Baking Goods</option>
+     <option value = "Frozen Foods">Frozen Foods</option>
+     <option value = "Health & Personal Care">Health & Personal Care</option>
+     <option value = "Meat">Meat</option>
+     <option value = "Produce">Produce</option>
+     <option value = "Other">Other</option>
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Item</label>
+      </div>
+  <input class="item" type="text" style="width:400px" >
+</div>
+
+
+  <div>
+    <button class="create">Add Item</button>
+    <button class="update">Change Category</button>
+    <button class="delete">Delete Item</button>
+    <button class="clear">Clear List</button>
+  </div>
+  <script src="app/app.js"></script>
+
+<br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Bakery</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Canned Goods</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Dairy</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Dry/Baking Goods</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Frozen Foods</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Health & Personal Care</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Meat</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Produce</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Other</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+
+</body>
+
+
+</html> 
+<!-- <head>
+  <meta charset="UTF-8">
   <title>HREXT10 R00lz!</title>
   <script
           src="https://code.jquery.com/jquery-3.3.1.js"
@@ -16,15 +161,15 @@
     <div class="row mb-3">
       <div class="input-group col-sm-5">
         <div class="input-group-prepend">
-          <label class="input-group-text">Key</label>
+          <label class="input-group-text">item</label>
         </div>
-        <input class="key form-control" type="text">
+        <input class="item form-control" type="text">
       </div>
       <div class="input-group col-sm-5">
         <div class="input-group-prepend">
-          <label class="input-group-text">Value</label>
+          <label class="input-group-text">category</label>
         </div>
-        <input class="value form-control" type="text">
+        <input class="category form-control" type="text">
       </div>
       <button class="reset btn btn-danger btn-sm col-sm-2">Reset Input</button>
     </div>
@@ -38,8 +183,8 @@
       <table class="table table-striped table-hover table-dark">
         <thead>
           <tr>
-            <th scope="col">Key</th>
-            <th scope="col">Value</th>
+            <th scope="col">item</th>
+            <th scope="col">category</th>
           </tr>
         </thead>
         <tbody>
@@ -49,4 +194,4 @@
   </div>
   <script src="app/app.js"></script>
 </body>
-</html>
+</html> -->

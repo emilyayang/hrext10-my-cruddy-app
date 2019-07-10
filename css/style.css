@@ -19,3 +19,17 @@ label {
   text-decoration: underline;
 }*/
 
+.input-group-text {
+	justify-content: center;
+	width:100px;
+}
+
+.item {
+	border-radius:5px
+	/*border: 2px solid black;*/
+}
+
+.table table-striped {
+	justify-content: center;
+
+}

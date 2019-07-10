@@ -38,6 +38,7 @@ var showList = function() {
   $('tbody').html('');
 
   for (var i = 0; i < window.localStorage.length; i++) {
+    var category = window.localStorage.value(i);
     var item = window.localStorage.key(i);
     $('tbody').append(`<tr><td>${item}</td><td>${window.localStorage.getItem(item)}</td></tr>`)
   }
@@ -66,7 +67,7 @@ $(document).ready(function() {
   $('.create').click(function() {
     if (getItemInput() !== '' && getCategoryInput() !== '') {
       if (itemExists(getItemInput())) {
-        if(confirm('Item already exists! Would you like to update instead?')) {
+        if(confirm('Item already exists! Would you like to change instead?')) {
           updateItem(getItemInput(), getCategoryInput());
           showList();
         }
