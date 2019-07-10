@@ -6,28 +6,28 @@
 
 */
 
-var categories = ["Bakery", 
-   "Beverages",
-   "Canned Goods",
-   "Dairy",
-   "Dry/Baking Goods",
-   "Frozen Foods",
-   "Health & Personal Care",
-   "Meat",
-   "Produce",
-   "Other"]
+// var categories = ["Bakery", 
+//    "Beverages",
+//    "Canned Goods",
+//    "Dairy",
+//    "Dry/Baking Goods",
+//    "Frozen Foods",
+//    "Health & Personal Care",
+//    "Meat",
+//    "Produce",
+//    "Other"]
 
 //localStorage functions
 var createItem = function(item, category) {
-  return window.localStorage.setcategory(item, category);
+  return window.localStorage.setItem(item, category);
 }
 
 var updateItem = function(item, category) {
-  return window.localStorage.setcategory(item, category);
+  return window.localStorage.setItem(item, category);
 }
 
 var deleteItem = function(item) {
-  return window.localStorage.removecategory(item);
+  return window.localStorage.removeItem(item);
 }
 
 var clearList = function() {
@@ -38,20 +38,20 @@ var showList = function() {
   $('tbody').html('');
 
   for (var i = 0; i < window.localStorage.length; i++) {
-    var item = window.localStorage.item(i);
-    $('tbody').append(`<tr><td>${item}</td><td>${window.localStorage.getcategory(item)}</td></tr>`)
+    var item = window.localStorage.key(i);
+    $('tbody').append(`<tr><td>${item}</td><td>${window.localStorage.getItem(item)}</td></tr>`)
   }
 }
 
 var itemExists = function(item) {
-  return window.localStorage.getcategory(item) !== null
+  return window.localStorage.getItem(item) !== null
 }
 
-var getitemInput = function() {
+var getItemInput = function() {
   return $('.item').val();
 }
 
-var getcategoryInput = function() {
+var getCategoryInput = function() {
   return $('.category').val();
 }
 
@@ -64,47 +64,47 @@ $(document).ready(function() {
   showList();
 
   $('.create').click(function() {
-    if (getitemInput() !== '' && getcategoryInput() !== '') {
-      if (itemExists(getitemInput())) {
+    if (getItemInput() !== '' && getCategoryInput() !== '') {
+      if (itemExists(getItemInput())) {
         if(confirm('Item already exists! Would you like to update instead?')) {
-          updateItem(getitemInput(), getcategoryInput());
+          updateItem(getItemInput(), getCategoryInput());
           showList();
         }
       } else {
-        createItem(getitemInput(), getcategoryInput());
+        createItem(getItemInput(), getCategoryInput());
         showList();
         resetInputs();
       }
-    // } else  {
-    //   alert('item and category must not be blank');
+    } else  {
+      alert('Item and category must not be blank');
     }
   });
 
   $('.update').click(function() {
-    if (getitemInput() !== '' && getcategoryInput() !== '') {
-      if (itemExists(getitemInput())) {
-        updateItem(getitemInput(), getcategoryInput());
+    if (getItemInput() !== '' && getCategoryInput() !== '') {
+      if (itemExists(getItemInput())) {
+        updateItem(getItemInput(), getCategoryInput());
         showList();
         resetInputs();
       } else {
         alert('Item does not exist');
       }
-    // } else {
-    //   alert('item and category must not be blank');
+    } else {
+      alert('Item and category must not be blank');
     }
   });
 
   $('.delete').click(function() {
-     if (getitemInput() !== '') {
-      if (itemExists(getitemInput())) {
-        deleteItem(getitemInput());
+     if (getItemInput() !== '') {
+      if (itemExists(getItemInput())) {
+        deleteItem(getItemInput());
         showList();
         resetInputs();
       } else {
         alert('Item does not exist');
       }
-    // } else {
-    //   alert('item must not be blank');
+    } else {
+      alert('Item must not be blank');
     }
   });
 
