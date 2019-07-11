@@ -12,13 +12,15 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
  </head>
 <body>
-  <h2>ListIt</h2>
+  <br>
 
-<div class="input-group mb-3">
+  <h1 align="center">ListIt</h1>
+<br>
+<div class="input-group mb-3" style="justify-content:center">
   <div class="input-group-prepend">
     <label class="input-group-text" for="inputGroupSelect01">Category</label>
   </div>
-  <select class="category" id="inputGroupSelect01" style="width:400px" >
+  <select class="category" id="inputGroupSelect01" style="width:430px" >
      <option selected>Choose...</option>
      <option value = "Bakery">Bakery</option>
      <option value = "Canned Goods">Canned Goods</option>
@@ -32,25 +34,28 @@
   </select>
 </div>
 
-<div class="input-group mb-3">
+<div class="input-group mb-3"  style="justify-content:center">
   <div class="input-group-prepend">
     <label class="input-group-text" for="inputGroupSelect01">Item</label>
       </div>
-  <input class="item" type="text" style="width:400px" >
+  <input class="item" type="text" style="width:430px" >
 </div>
 
 
-  <div>
-    <button class="create">Add Item</button>
-    <button class="update">Change Category</button>
-    <button class="delete">Delete Item</button>
-    <button class="clear">Clear List</button>
+  <div class="row justify-content-center">
+   <!--  <button type="button" class="">Info</button> -->
+    <!-- <button class="create btn btn-success btn-sm mr-2 col-sm-2">Create</button> -->
+
+    <button class="create btn btn-info">Add Item</button>
+    <button class="update btn btn-info">Change Category</button>
+    <button class="delete btn btn-info">Delete Item</button>
+    <button class="clear btn btn-info">Clear List</button>
   </div>
   <script src="app/app.js"></script>
 
 <br>
 
-<table class="table" id="bakery" align="center">
+<table class="table table-bordered" id="bakery" style="padding-right: 20px; padding left: 20px;">
   <thead class="thead">
     <tr>
       <th scope="col">Bakery</th>
@@ -60,7 +65,7 @@
   </tbody>
 </table>
 
-<table class="table" id="canned-goods">
+<table class="table table-bordered" id="canned-goods">
   <thead class="thead">
     <tr>
       <th scope="col">Canned Goods</th>
@@ -70,7 +75,7 @@
   </tbody>
 </table>
 
-<table class="table" id="dairy">
+<table class="table table-bordered" id="dairy">
   <thead class="thead">
     <tr>
       <th scope="col">Dairy</th>
@@ -80,7 +85,7 @@
   </tbody>
 </table>
 
-<table class="table" id="dry-baking-goods">
+<table class="table table-bordered" id="dry-baking-goods">
   <thead class="thead">
     <tr>
       <th scope="col">Dry/Baking Goods</th>
@@ -90,7 +95,7 @@
   </tbody>
 </table>
 
-<table class="table" id="frozen-foods">
+<table class="table table-bordered" id="frozen-foods">
   <thead class="thead">
     <tr>
       <th scope="col">Frozen Foods</th>
@@ -100,7 +105,7 @@
   </tbody>
 </table>
 
-<table class="table" id="health-and-care">
+<table class="table table-bordered" id="health-and-care">
   <thead class="thead">
     <tr>
       <th scope="col">Health & Personal Care</th>
@@ -110,7 +115,7 @@
   </tbody>
 </table>
 
-<table class="table" id="meat">
+<table class="table table-bordered" id="meat">
   <thead class="thead">
     <tr>
       <th scope="col">Meat</th>
@@ -120,7 +125,7 @@
   </tbody>
 </table>
 
-<table class="table" id="produce">
+<table class="table table-bordered" id="produce">
   <thead class="thead">
     <tr>
       <th scope="col">Produce</th>
@@ -130,7 +135,7 @@
   </tbody>
 </table>
 
-<table class="table" id="other">
+<table class="table table-bordered" id="other">
   <thead class="thead">
     <tr>
       <th scope="col">Other</th>

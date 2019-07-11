@@ -41,31 +41,32 @@ var showList = function() {
     var item = window.localStorage.key(i);
     var category = localStorage.getItem(localStorage.key(i));
     if (category === "Bakery") {
-      $('#bakery').append(`<tr><td>${item}</td></tr>`)
+     $('#bakery').append(`<tr><td><input type="checkbox"><span class="container" class="checkmark"></span>${item}</td></tr>`)
+
     }
     if (category === "Canned Goods") {
-      $('#canned-goods').append(`<tr><td>${item}</td></tr>`)
+      $('#canned-goods').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
     }
     if (category === "Dairy") {
-      $('#dairy').append(`<tr><td>${item}</td></tr>`)
+      $('#dairy').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
     }
     if (category === "Dry/Baking Goods") {
-      $('#dry-baking-goods').append(`<tr><td>${item}</td></tr>`)
+      $('#dry-baking-goods').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
     }
     if (category === "Frozen Foods") {
-      $('#frozen-foods').append(`<tr><td>${item}</td></tr>`)
+      $('#frozen-foods').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
     }
     if (category === "Health & Personal Care") {
-      $('#health-and-care').append(`<tr><td>${item}</td></tr>`)
+      $('#health-and-care').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
     }
     if (category === "Meat") {
-      $('#meat').append(`<tr><td>${item}</td></tr>`)
+      $('#meat').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
     }
     if (category === "Produce") {
-      $('#produce').append(`<tr><td>${item}</td></tr>`)
+      $('#produce').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
     }
     if (category === "Other") {
-      $('#other').append(`<tr><td>${item}</td></tr>`)
+      $('#other').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
     }
   }
 }
