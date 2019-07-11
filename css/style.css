@@ -29,7 +29,20 @@ label {
 	/*border: 2px solid black;*/
 }
 
-.table table-striped {
+.table {
 	justify-content: center;
 
 }
+
+.thead {
+	
+}
+/*#beverages
+#canned-goods
+#cairy
+#dry-baking-goods
+#frozen-foods
+#health-and-care
+#meat
+#produce
+#other*/

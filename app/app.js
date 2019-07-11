@@ -38,9 +38,35 @@ var showList = function() {
   $('tbody').html('');
 
   for (var i = 0; i < window.localStorage.length; i++) {
-    var category = window.localStorage.value(i);
     var item = window.localStorage.key(i);
-    $('tbody').append(`<tr><td>${item}</td><td>${window.localStorage.getItem(item)}</td></tr>`)
+    var category = localStorage.getItem(localStorage.key(i));
+    if (category === "Bakery") {
+      $('#bakery').append(`<tr><td>${item}</td></tr>`)
+    }
+    if (category === "Canned Goods") {
+      $('#canned-goods').append(`<tr><td>${item}</td></tr>`)
+    }
+    if (category === "Dairy") {
+      $('#dairy').append(`<tr><td>${item}</td></tr>`)
+    }
+    if (category === "Dry/Baking Goods") {
+      $('#dry-baking-goods').append(`<tr><td>${item}</td></tr>`)
+    }
+    if (category === "Frozen Foods") {
+      $('#frozen-foods').append(`<tr><td>${item}</td></tr>`)
+    }
+    if (category === "Health & Personal Care") {
+      $('#health-and-care').append(`<tr><td>${item}</td></tr>`)
+    }
+    if (category === "Meat") {
+      $('#meat').append(`<tr><td>${item}</td></tr>`)
+    }
+    if (category === "Produce") {
+      $('#produce').append(`<tr><td>${item}</td></tr>`)
+    }
+    if (category === "Other") {
+      $('#other').append(`<tr><td>${item}</td></tr>`)
+    }
   }
 }
 
