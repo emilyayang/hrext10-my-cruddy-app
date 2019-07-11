@@ -34,39 +34,84 @@ var clearList = function() {
   return window.localStorage.clear();
 }
 
+// var showDatabaseContents = function() {
+//   $('tbody').html('');
+
+//   for (var i = 0; i < window.localStorage.length; i++) {
+//     var key = window.localStorage.key(i);
+//     $('tbody').append(`<tr><td>${key}</td><td>${window.localStorage.getItem(key)}</td></tr>`)
+//   }
+// }
+
 var showList = function() {
-  $('tbody').html('');
+  $('#bakery tbody').html('');
+  $('#canned-goods tbody').html('');
+  $('#dairy tbody').html('');
+  $('#dry-baking-goods tbody').html('');
+  $('#frozen-foods tbody').html('');
+  $('#health-and-care tbody').html('');
+  $('#meat tbody').html('');
+  $('#produce tbody').html('');
+  $('#other tbody').html('');
+
 
   for (var i = 0; i < window.localStorage.length; i++) {
     var item = window.localStorage.key(i);
     var category = localStorage.getItem(localStorage.key(i));
-    if (category === "Bakery") {
-     $('#bakery').append(`<tr><td><input type="checkbox"><span class="container" class="checkmark"></span>${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Bakery") {
+     $('#bakery').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
 
     }
-    if (category === "Canned Goods") {
-      $('#canned-goods').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Canned Goods") {
+      $('#canned-goods').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
     }
-    if (category === "Dairy") {
-      $('#dairy').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Dairy") {
+      $('#dairy').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
     }
-    if (category === "Dry/Baking Goods") {
-      $('#dry-baking-goods').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Dry/Baking Goods") {
+      $('#dry-baking-goods').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
     }
-    if (category === "Frozen Foods") {
-      $('#frozen-foods').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Frozen Foods") {
+      $('#frozen-foods').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
     }
-    if (category === "Health & Personal Care") {
-      $('#health-and-care').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Health & Personal Care") {
+      $('#health-and-care').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
     }
-    if (category === "Meat") {
-      $('#meat').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Meat") {
+      $('#meat').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
     }
-    if (category === "Produce") {
-      $('#produce').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Produce") {
+      $('#produce').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
     }
-    if (category === "Other") {
-      $('#other').append(`<tr><td><input type="checkbox" />&ensp;${item}</td></tr>`)
+    if (itemExists()===undefined && category === "Other") {
+      $('#other').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
     }
   }
 }
