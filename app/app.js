@@ -1,4 +1,4 @@
-/*
+/*s
 
  ### Basic Reqs
 - [ ] Where to store data? (localstorage)
@@ -34,80 +34,66 @@ var clearList = function() {
   return window.localStorage.clear();
 }
 
-// var showDatabaseContents = function() {
-//   $('tbody').html('');
-
-//   for (var i = 0; i < window.localStorage.length; i++) {
-//     var key = window.localStorage.key(i);
-//     $('tbody').append(`<tr><td>${key}</td><td>${window.localStorage.getItem(key)}</td></tr>`)
-//   }
-// }
-
 var showList = function() {
-  $('#bakery tbody').html('');
-  $('#canned-goods tbody').html('');
-  $('#dairy tbody').html('');
-  $('#dry-baking-goods tbody').html('');
-  $('#frozen-foods tbody').html('');
-  $('#health-and-care tbody').html('');
-  $('#meat tbody').html('');
-  $('#produce tbody').html('');
-  $('#other tbody').html('');
-
-
+  $('.container').html('');
   for (var i = 0; i < window.localStorage.length; i++) {
     var item = window.localStorage.key(i);
     var category = localStorage.getItem(localStorage.key(i));
-    if (itemExists()===undefined && category === "Bakery") {
+    if (category === "Bakery") {
      $('#bakery').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
       </label>`)
-
     }
-    if (itemExists()===undefined && category === "Canned Goods") {
+    if (!itemExists() && category === "Canned Goods") {
       $('#canned-goods').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
       </label>`)
     }
-    if (itemExists()===undefined && category === "Dairy") {
+    if (!itemExists() && category === "Dairy") {
       $('#dairy').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
       </label>`)
     }
-    if (itemExists()===undefined && category === "Dry/Baking Goods") {
+    if (!itemExists() && category === "Dry/Baking Goods") {
       $('#dry-baking-goods').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
       </label>`)
     }
-    if (itemExists()===undefined && category === "Frozen Foods") {
+    if (!itemExists() && category === "Frozen Foods") {
       $('#frozen-foods').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
       </label>`)
     }
-    if (itemExists()===undefined && category === "Health & Personal Care") {
+    if (!itemExists() && category === "Health & Personal Care") {
       $('#health-and-care').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
       </label>`)
     }
-    if (itemExists()===undefined && category === "Meat") {
+    if (!itemExists() && category === "Meat") {
       $('#meat').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
       </label>`)
     }
-    if (itemExists()===undefined && category === "Produce") {
+    if (!itemExists() && category === "Produce") {
       $('#produce').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
       </label>`)
     }
-    if (itemExists()===undefined && category === "Other") {
+    if (!itemExists() && category === "Other") {
+      $('#other').append(`<label class="container">${item}
+      <input type="checkbox">
+      <span class="checkmark"></span>
+      </label>`)
+    }
+    if (!itemExists() && category === "") {
       $('#other').append(`<label class="container">${item}
       <input type="checkbox">
       <span class="checkmark"></span>
@@ -137,10 +123,13 @@ $(document).ready(function() {
   showList();
 
   $('.create').click(function() {
-    if (getItemInput() !== '' && getCategoryInput() !== '') {
+    if (getItemInput() !== '') {
+    // if (getItemInput() !== '' && getCategoryInput() !== '') {
+
       if (itemExists(getItemInput())) {
-        if(confirm('Item already exists! Would you like to change instead?')) {
+        if(confirm('Item already exists! Would you like to change the category instead?')) {
           updateItem(getItemInput(), getCategoryInput());
+          resetInputs();
           showList();
         }
       } else {
@@ -149,21 +138,7 @@ $(document).ready(function() {
         resetInputs();
       }
     } else  {
-      alert('Item and category must not be blank');
-    }
-  });
-
-  $('.update').click(function() {
-    if (getItemInput() !== '' && getCategoryInput() !== '') {
-      if (itemExists(getItemInput())) {
-        updateItem(getItemInput(), getCategoryInput());
-        showList();
-        resetInputs();
-      } else {
-        alert('Item does not exist');
-      }
-    } else {
-      alert('Item and category must not be blank');
+      alert('Item must not be blank');
     }
   });
 
